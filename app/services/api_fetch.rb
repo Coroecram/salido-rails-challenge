@@ -4,19 +4,20 @@ class APIFetch
   def initialize(search_query)
     @wines = []
     @errors = []
-    @search_params = search_query[:query].gsub(" ", "+")
-    @types = search_query[:kind]
-    @price_min =  search_query[:price_min] != "" ? search_query[:price_min] : 0
-    @price_max =  search_query[:price_max] != "" ? search_query[:price_max] : 9999
-    @size = search_query[:size] != "" ? search_query[:size] : 5
-    @query_string = "search=#{@search_params}&filter=price(#{@price_min}|#{@price_max})&offset=300&size=#{@size}&state=NY&#{ENV['WINE_API_KEY']}"
+    search_params = search_query[:query].gsub(" ", "+")
+    types = search_query[:kind]
+    price_min =  search_query[:price_min] != "" ? search_query[:price_min] : 0
+    price_max =  search_query[:price_max] != "" ? search_query[:price_max] : 9999
+    size = search_query[:size] != "" ? search_query[:size] : 5
+    offset = search_query[:offset] != "" ? search_query[:offset] : 0
+    @query_string = "search=#{search_params}&filter=price(#{price_min}|#{price_max})&offset=#{offset}&size=#{size}&state=NY&#{ENV['WINE_API_KEY']}"
 
-    validate
+    validate(price_min, price_max)
     fetch_wines if @errors.empty?
   end
 
-  def validate
-    if @price_min >= @price_max
+  def validate(min, max)
+    if min > max
       @errors.push("Max price must be greater than min price")
     end
   end
