@@ -4,6 +4,11 @@ class WinesController < ApplicationController
     @wines = Wine.all.order("id ASC").page(params[:page])
   end
 
+  def retrieve_from_api
+    debugger
+    render :retrieve_from_api
+  end
+
   def new
     @wine = Wine.new
   end
