@@ -83,3 +83,16 @@ production:
   database: SalidoRailsChallenge_production
   username: SalidoRailsChallenge
   password: <%= ENV['SALIDORAILSCHALLENGE_DATABASE_PASSWORD'] %>
+
+#Importing from API
+# https://api.wine.com/wiki/2-catalog-queries
+# wines = RestClient.get 'http://services.wine.com/api/beta2/service.svc/json/catalog?offset=offset&size=size&apikey=key
+# json_wines = JSON.parse(wines)
+# json_wines = json_wines["Products"]["List"]
+# json_wines.each { |wine| Wine.create!({name: wine["Name"],
+#                                        url: wine["Url"],
+#                                        min_price: wine["PriceMin"],
+#                                        max_price: wine["PriceMax"],
+#                                        retail_price: wine["PriceRetail"],
+#                                        kind: wine["Type"],
+#                                        api_id: wine["Id"] })
