@@ -10,14 +10,20 @@ class WinesController < ApplicationController
 
   def create
     @wine = Wine.new(wine_params)
+
+    if @wine.save
+      redirect_to wines_url
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
-    @wine = Wine.find(params_id)
+    @wine = Wine.find(params[:id])
   end
 
   def update
-    @wine = Wine.find(params_id)
+    @wine = Wine.find(params[:id])
 
     if @wine.update(wine_params)
         redirect_to edit_wine_url(@wine)
