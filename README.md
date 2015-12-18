@@ -23,7 +23,9 @@ There are a couple of cool things I'd like to point out with this app. First of 
 ###USING THIS APP
 Once you get an API key from the [Wine API][wine-api], install figaro and run 'rails g figaro:install'. Then, in your newly made application.yml file, make a new key named WINE_API_KEY: "your_secret_api_key". More info here: [Figaro][figaro]
 
-Then, you can run this app from a server.
+Then, you can fully run this app from a server.
+
+From the Home page, click on Find New Products. This will bring you directly to the form with which you can communicate with the Wine API, or your own database if you already have the items.
 
 
 [factory_girl]: https://github.com/thoughtbot/factory_girl

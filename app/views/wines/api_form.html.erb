@@ -1,4 +1,5 @@
 <h1>Find Wines <a href="http://www.wine.com/" title="Wine.com the destination for Wine and Wine Gifts"><img src="http://cache.wine.com/images/logos/80x80_winecom_logo.png" alt="Wine.com the destination for Wine and Wine Gifts" /></a></h1>
+<h2><%= link_to "All Products", wines_url %></h2>
 <h3><%= flash[:errors] %></h3>
 <form action="<%=wines_api_retrieval_url%>" method="POST">
   <label for="search_query">Search by wine name:
@@ -28,6 +29,11 @@
 
   <label>Amount to return:
     <input type="number" name="search[size]" min="5" max="100" value="5">
+  </label>
+  <br>
+
+  <label>Offset:
+    <input type="number" name="search[page]" min="0" max="9999" value="0">
   </label>
   <br>
 
