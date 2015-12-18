@@ -8,7 +8,7 @@ class WinesController < ApplicationController
 
   def api_retrieval
     fetched = APIFetch.new(params[:search])
-    debugger
+    @wines = fetched.wines
   end
 
   def new
