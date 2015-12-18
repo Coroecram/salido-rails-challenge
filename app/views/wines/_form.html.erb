@@ -1,0 +1,10 @@
+<% form_action = (wine.persisted? ? wine_url(wine.id) : wines_url ) %>
+<% hidden_method = (wine.persisted? ? "PATCH" : "POST" ) %>
+
+<form action="<%=form_action%>" method="POST">
+  <input type="hidden" name="_method" value="<%=hidden_method%>">
+
+  
+
+  <button>Submit</button>
+</form>

@@ -1,5 +1,6 @@
 <h1>Wines</h1>
-  <ul>
+  <%= link_to "Make New Product", new_wine_url %>
+  <ol>
     <% @wines.each do |wine| %>
       <li>
         <a href="<%= wine.url %>"><%= wine.name %></a>
@@ -7,7 +8,8 @@
         <p>Max Price: <%= wine.max_price %></p>
         <p>Retail Price: <%= wine.retail_price %></p>
         <p>Type: <%= wine.kind %></p>
+        <%= link_to "Edit Product", edit_wine_url(wine.id) %>
       </li>
     <hr>
     <%end%>
-  </ul>
+  </ol>
