@@ -7,34 +7,40 @@
 <form action="<%=form_action%>" method="POST">
   <input type="hidden" name="_method" value="<%= hidden_method %>">
 
-  <label for="wine_name">Wine name: </label>
-  <input type="text" name="wine[name]" value="<%=wine.name%>">
+  <label>Wine name:
+    <input type="text" name="wine[name]" value="<%=wine.name%>">
+  </label>
   <br>
 
-  <label for="wine_url">Wine Url: </label>
-  <input type="text" name="wine[url]" value="<%=wine.url%>">
+  <label>Wine Url:
+    <input type="text" name="wine[url]" value="<%=wine.url%>">
+  </label>
   <br>
 
-  <label for="wine_max_price">Wine Max Price: </label>
-  <input type="text" name="wine[max_price]" value="<%=wine.max_price%>">
+  <label>Wine Max Price:
+    <input type="text" name="wine[max_price]" value="<%=wine.max_price%>">
+  </label>
   <br>
 
-  <label for="wine_name">Wine Min Price: </label>
-  <input type="text" name="wine[min_price]" value="<%=wine.min_price%>">
+  <label>Wine Min Price:
+    <input type="text" name="wine[min_price]" value="<%=wine.min_price%>">
+  </label>
   <br>
 
-  <label for="wine_name">Wine Retail Price: </label>
-  <input type="text" name="wine[retail_price]" value="<%=wine.retail_price%>">
+  <label>Wine Retail Price:
+    <input type="text" name="wine[retail_price]" value="<%=wine.retail_price%>">
+  </label>
   <br>
 
-  <label for="wine_kind">Wine Type:</label>
-  <select name="wine[kind]" id="wine_kind">
-    <option></option>
-    <option value="Wine" <%="selected" if wine.kind == "Wine"%> >Wine</option>
-    <option value="WineSet" <%="selected" if wine.kind == "WineSet"%> >WineSet</option>
-    <option value="Champagne" <%="selected" if wine.kind == "Champagne"%> >Champagne</option>
-    <option value="Prosecco" <%="selected" if wine.kind == "Prosecco"%>>Prosecco</option>
-  </select>
+  <label>Wine Type:
+    <select name="wine[kind]" id="wine_kind">
+      <option></option>
+      <option value="Wine" <%="selected" if wine.kind == "Wine"%> >Wine</option>
+      <option value="WineSet" <%="selected" if wine.kind == "WineSet"%> >WineSet</option>
+      <option value="Champagne" <%="selected" if wine.kind == "Champagne"%> >Champagne</option>
+      <option value="Prosecco" <%="selected" if wine.kind == "Prosecco"%>>Prosecco</option>
+    </select>
+  </label>
   <br>
 
   <button>Submit</button>
