@@ -1,7 +1,7 @@
 class WinesController < ApplicationController
 
   def index
-    @wines = Wine.all
+    @wines = Wine.all.order("id ASC")
   end
 
   def new
