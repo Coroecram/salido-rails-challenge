@@ -19,11 +19,9 @@ class APIFetch
     if @price_min >= @price_max
       @errors.push("Max price must be greater than min price")
     end
-    debugger
   end
 
   def fetch_wines
-    debugger
     wines = JSON.parse(RestClient.get "http://services.wine.com/api/beta2/service.svc/json/catalog?#{@query_string}")["Products"]["List"]
     wines.each { |wine| @wines.push(Wine.find_or_create_by!({name: wine["Name"],
                                                             url: wine["Url"],

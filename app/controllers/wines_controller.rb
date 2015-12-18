@@ -8,8 +8,15 @@ class WinesController < ApplicationController
 
   def api_retrieval
     fetched = APIFetch.new(params[:search])
-    debugger
-    @wines = fetched.wines
+    if fetched.errors.length != 0
+      flash[:errors] = fetched.errors.join
+      redirect_to wines_api_form_url
+    elsif fetched.wines.length == 0
+      flash[:errors] = "That query did not return any wines"
+      redirect_to wines_api_form_url
+    else
+      @wines = fetched.wines
+    end
   end
 
   def new
