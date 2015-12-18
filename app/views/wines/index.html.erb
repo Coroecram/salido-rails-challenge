@@ -1,0 +1,13 @@
+<h1>Wines</h1>
+  <ul>
+    <% @wines.each do |wine| %>
+      <li>
+        <a href="<%= wine.url %>"><%= wine.name %></a>
+        <p>Min Price: <%= wine.min_price %></p>
+        <p>Max Price: <%= wine.max_price %></p>
+        <p>Retail Price: <%= wine.retail_price %></p>
+        <p>Type: <%= wine.kind %></p>
+      </li>
+    <hr>
+    <%end%>
+  </ul>

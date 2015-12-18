@@ -41,4 +41,5 @@ class WinesController < ApplicationController
                                  :max_price,
                                  :retail_price,
                                  :kind)
+  end
 end
