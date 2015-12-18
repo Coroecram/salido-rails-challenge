@@ -18,7 +18,7 @@ The app also has 40 included model and feature tests to back it up. Of course, t
 When using this app, you will need to sign up for an account to obtain your own apikey. I have used the Figaro gem for handling my API key so it will not be available to you.
 
 ##Cool Stuff
-There are a couple of cool things I'd like to point out with this app. First of all, I simply added [Kaminari][https://github.com/amatsuda/kaminari] to paginate the index page, there are appropriate flash[:errors] for invalid inputs, and [FactoryGirl][factory_girl] with [Faker][faker] were used to make models for testing.
+There are a couple of cool things I'd like to point out with this app. First of all, I simply added [Kaminari][kaminari] to paginate the index page, there are appropriate flash[:errors] for invalid inputs, and [FactoryGirl][factory_girl] with [Faker][faker] were used to make models for testing.
 
 ###USING THIS APP
 Once you get an API key from the [Wine API][wine-api], install figaro and run 'rails g figaro:install'. Then, in your newly made application.yml file, make a new key named WINE_API_KEY: "your_secret_api_key". More info here: [Figaro][figaro]
