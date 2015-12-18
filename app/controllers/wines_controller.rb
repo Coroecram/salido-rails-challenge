@@ -1,7 +1,7 @@
 class WinesController < ApplicationController
 
   def index
-    @wines = Wine.all.order("id ASC")
+    @wines = Wine.all.order("id ASC").page(params[:page])
   end
 
   def new
