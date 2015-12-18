@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'byebug'
 
 RSpec.feature 'Page Links' do
   after { Wine.delete_all }
