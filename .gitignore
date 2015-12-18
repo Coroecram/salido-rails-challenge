@@ -13,5 +13,5 @@
 /tmp
 
 # Ignore yml files
-/config/database.yml
-/config/secrets.yml
+config/database.yml
+config/secrets.yml
