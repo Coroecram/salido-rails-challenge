@@ -1,0 +1,41 @@
+<h1>Find Wines <a href="http://www.wine.com/" title="Wine.com the destination for Wine and Wine Gifts"><img src="http://cache.wine.com/images/logos/80x80_winecom_logo.png" alt="Wine.com the destination for Wine and Wine Gifts" /></a></h1>
+<h2><%= link_to "All Products", wines_url %></h2>
+<h3><%= flash[:errors] %></h3>
+<form action="<%=wines_api_retrieval_url%>" method="POST">
+  <label for="search_query">Search by wine name:
+    <input type="text" name="search[query]" value="">
+  </label>
+  <br>
+
+  <label>Wine Type:
+    <select name="search[kind]">
+      <option></option>
+      <option value="Wine" selected >Wine</option>
+      <option value="WineSet">WineSet</option>
+      <option value="Champagne">Champagne</option>
+      <option value="Prosecco">Prosecco</option>
+    </select>
+  </label>
+  <br>
+
+  <label>Price ($)</label>
+  <label for="search_query">From:
+    <input type="number" name="search[price_min]" min="0" max="9999" value="">
+  </label>
+  <label for="search_query">To:
+    <input type="number" name="search[price_max]" min="0" max="9999" value="">
+  </label>
+  <br>
+
+  <label>Amount to return:
+    <input type="number" name="search[size]" min="5" max="100" value="5">
+  </label>
+  <br>
+
+  <label>Offset:
+    <input type="number" name="search[offset]" min="0" max="9999" value="0">
+  </label>
+  <br>
+
+  <button>Submit</button>
+</form>
