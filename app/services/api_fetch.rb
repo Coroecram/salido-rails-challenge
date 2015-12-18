@@ -8,7 +8,7 @@ class APIFetch
     @types = search_query[:kind]
     @price_min =  search_query[:price_min]
     @price_max =  search_query[:price_max]
-    debugger
+    @size = search_query[:size] != "" ? search_query[:size] : 5
 
     validate
     @query_string = parse_query
@@ -31,15 +31,14 @@ class APIFetch
 
   def fetch_wines
     wines = JSON.parse(RestClient.get "http://services.wine.com/api/beta2/service.svc/json/catalog?#{@query_string}offset=0&size=5&state=NY&apikey=#{ENV['WINE_API_KEY']}")["Products"]["List"]
-    debugger
-    # wines = json_wines
-    # json_wines.each { |wine| Wine.create!({name: wine["Name"],
-    #                                        url: wine["Url"],
-    #                                        min_price: wine["PriceMin"],
-    #                                        max_price: wine["PriceMax"],
-    #                                        retail_price: wine["PriceRetail"],
-    #                                        kind: wine["Type"],
-    #                                        api_id: wine["Id"] }) }
+    wines.each { |wine| @wines.push(Wine.create!({name: wine["Name"],
+                                           url: wine["Url"],
+                                           min_price: wine["PriceMin"],
+                                           max_price: wine["PriceMax"],
+                                           retail_price: wine["PriceRetail"],
+                                           kind: wine["Type"],
+                                           api_id: wine["Id"] })
+                                        ) }
   end
 
 
