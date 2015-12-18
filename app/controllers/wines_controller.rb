@@ -14,6 +14,7 @@ class WinesController < ApplicationController
     if @wine.save
       redirect_to wines_url
     else
+      flash.now[:errors] = @wine.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
@@ -28,6 +29,7 @@ class WinesController < ApplicationController
     if @wine.update(wine_params)
         redirect_to wines_url
     else
+      flash.now[:errors] = @wine.errors.full_messages.to_sentence
       render :edit
     end
   end
