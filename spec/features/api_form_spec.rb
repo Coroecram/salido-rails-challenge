@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.feature 'Api requests' do
+RSpec.feature 'API requests' do
 
   before(:each) { visit wines_api_form_path }
 
@@ -31,10 +31,10 @@ RSpec.feature 'Api requests' do
   end
 
   it 'searches correctly' do
-    fill_in 'Search by wine name:', :with => "Cabernet", visible: false
+    fill_in 'Search by wine name:', :with => "Pinot", visible: false
     click_button 'Submit'
 
-    expect(page).to have_content('Cabernet', count: 5)
+    expect(page).to have_content('Pinot', count: 5)
   end
 
   it 'redirects on success' do

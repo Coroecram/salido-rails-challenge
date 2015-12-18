@@ -5,6 +5,10 @@ describe 'Wine' do
     @wine = FactoryGirl.create(:wine)
   end
 
+  after(:all) do
+    Wine.delete_all
+  end
+
     it "has a valid factory" do
       expect(@wine).to be_valid
       @wine.save

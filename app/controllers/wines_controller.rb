@@ -3,7 +3,7 @@ require 'rest-client'
 class WinesController < ApplicationController
 
   def index
-    @wines = Wine.all.order("id DESC").page(params[:page])
+    @wines = Wine.all.order("created_at DESC").page(params[:page])
   end
 
   def api_retrieval
