@@ -17,7 +17,7 @@ class APIFetch
   end
 
   def validate(min, max)
-    if min > max
+    if min.to_f > max.to_f
       @errors.push("Max price must be greater than min price")
     end
   end
@@ -26,22 +26,15 @@ class APIFetch
     wines = JSON.parse(RestClient.get "http://services.wine.com/api/beta2/service.svc/json/catalog?#{@query_string}")["Products"]["List"]
 
     wines.each do |wine|
-        new_wine = Wine.find_or_create_by({name: wine["Name"],
+          @wines.push(Wine.find_or_create_by({name: wine["Name"],
                                            url: wine["Url"],
                                            min_price: wine["PriceMin"],
                                            max_price: wine["PriceMax"],
                                            retail_price: wine["PriceRetail"],
                                            kind: wine["Type"],
                                            api_id: wine["Id"] })
-      if new_wine.valid?
-        new_wine.save!
-        @wines.push(new_wine)
-      else
-        new_wine.max_price = new_wine.max_price.to_f
-        new_wine.min_price = new_wine.min_price.to_f - 0.01
-        new_wine.save!
-        @wines.push(new_wine)
-      end
+                      )
+
     end
 
   end
