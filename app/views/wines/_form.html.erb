@@ -2,7 +2,7 @@
 <% hidden_method = (wine.persisted? ? "PATCH" : "POST" ) %>
 
 <form action="<%=form_action%>" method="POST">
-  <input type="hidden" name="_method" value="<%=hidden_method%>">
+  <input type="hidden" name="_method" value="<%= hidden_method %>">
 
   <label for="wine_name">Wine name: </label>
   <input type="text" name="wine[name]" value="<%=wine.name%>">
