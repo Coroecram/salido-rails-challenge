@@ -4,9 +4,8 @@ class WinesController < ApplicationController
     @wines = Wine.all.order("id ASC").page(params[:page])
   end
 
-  def retrieve_from_api
+  def api_retrieval
     debugger
-    render :retrieve_from_api
   end
 
   def new
@@ -37,6 +36,10 @@ class WinesController < ApplicationController
       flash.now[:errors] = @wine.errors.full_messages.to_sentence
       render :edit
     end
+  end
+
+  def show
+    redirect_to wines_url
   end
 
   private
