@@ -19,19 +19,10 @@
 
   <label>Price ($)</label>
   <label for="search_query">From:
-    <input type="text" name="search[price_min]" value="">
+    <input type="number" name="search[price_min]" min="0" max="9999" value="">
   </label>
   <label for="search_query">To:
-    <input type="text" name="search[price_max]" value="">
-  </label>
-  <br>
-
-  <label>Retail Price ($)</label>
-  <label for="search_query">From:
-    <input type="text" name="search[retail_price_min]" value="">
-  </label>
-  <label for="search_query">To:
-    <input type="text" name="search[retail_price_max]" value="">
+    <input type="number" name="search[price_max]" min="0" max="9999" value="">
   </label>
   <br>
 
