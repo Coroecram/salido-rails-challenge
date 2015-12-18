@@ -26,7 +26,7 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
 
     if @wine.update(wine_params)
-        redirect_to edit_wine_url(@wine)
+        redirect_to wines_url
     else
       render :edit
     end
