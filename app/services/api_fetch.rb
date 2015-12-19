@@ -10,7 +10,7 @@ class APIFetch
     price_max =  search_query[:price_max] != "" ? search_query[:price_max] : 9999
     size = search_query[:size] != "" ? search_query[:size] : 5
     offset = search_query[:offset] != "" ? search_query[:offset] : 0
-    @query_string = "search=#{search_params}&filter=price(#{price_min}|#{price_max})&offset=#{offset}&size=#{size}&state=NY&#{ENV['WINE_API_KEY']}"
+    @query_string = "search=#{search_params}&filter=price(#{price_min}|#{price_max})&offset=#{offset}&size=#{size}&state=NY&apikey=#{ENV['WINE_API_KEY']}"
 
     validate(price_min, price_max)
     fetch_wines if @errors.empty?
